@@ -1,35 +1,34 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>AddressBook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/js/buddyinfo.js"></script>
+    <script src="/js/buddyInfo.js"></script>
 </head>
 <body>
-<form id="buddyForm" action="#" method="post" th:action="@{/}" th:object="${newBuddy}" onsubmit="addBuddy(event)">
-    <p>Add New Buddy:</p><br/>
-    <p>Name: <input type="text" th:field="*{name}"/></p><br/>
-    <p>Phone Number: <input type="text" th:field="*{phoneNumber}" /></p><br/>
-    <br/>
-    <input type="submit" value="Add Buddy" />
-</form>
+    <form id="buddyForm" action="#" method="post" th:action="@{/}" th:object="${newBuddy}" onsubmit="addBuddy(event)">
+        <h4>Add New Buddy:</h4>
+        <p>Name: <input type="text" th:field="*{name}"/></p>
+        <p>Phone Number: <input type="text" th:field="*{phoneNumber}" /></p>
+        <input type="submit" value="Add Buddy" />
+    </form>
 
-<h1>Address Book</h1>
-<table class="ui celled table">
-    <thead>
-    <th>
-    <td>Name</td>
-    <td>Phone Number</td>
-    </th>
-    </thead>
-    <tbody id="buddyRow">
-    <tr th:each="buddy: ${buddies}">
-        <td th:text="${buddy.name}"></td>
-        <td th:text="${buddy.phoneNumber}"></td>
-    </tr>
-    </tbody>
-</table>
+    <h1>Address Book</h1>
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Phone Number</td>
+            </tr>
+        </thead>
+        <tbody id="buddyRow">
+            <tr th:each="buddy: ${buddies}">
+                <td th:text="${buddy.name}"></td>
+                <td th:text="${buddy.phoneNumber}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
 
