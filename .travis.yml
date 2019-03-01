@@ -5,4 +5,4 @@ deploy:
   provider: heroku
   api-key:
     secure: c57bf6d4-727a-49a3-be20-9084d28a9f3e
-  app: address-book-andrew
+  app: myaddressbook4806
