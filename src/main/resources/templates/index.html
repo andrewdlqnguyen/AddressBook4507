@@ -1,24 +1,59 @@
-<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-<script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
-<script src="semantic/dist/semantic.min.js"></script>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/buddyinfo.js"></script>
+</head>
+<body>
+<form id="buddyForm" action="#" method="post" th:action="@{/}" th:object="${newBuddy}" onsubmit="addBuddy(event)">
+    <p>Add New Buddy:</p><br/>
+    <p>Name: <input type="text" th:field="*{name}"/></p><br/>
+    <p>Phone Number: <input type="text" th:field="*{phoneNumber}" /></p><br/>
+    <br/>
+    <input type="submit" value="Add Buddy" />
+</form>
 
 <h1>Address Book</h1>
 <table class="ui celled table">
     <thead>
-    <tr>
-        <th>Name</th>
-        <th>Phone</th>
-    </tr>
+    <th>
+    <td>Name</td>
+    <td>Phone Number</td>
+    </th>
     </thead>
-    <tbody>
-        <tr th:each="buddy : ${buddies}">
-            <td th:text="${buddy.name}"></td>
-            <td th:text="${buddy.phoneNumber}"></td>
-        </tr>
+    <tbody id="buddyRow">
+    <tr th:each="buddy: ${buddies}">
+        <td th:text="${buddy.name}"></td>
+        <td th:text="${buddy.phoneNumber}"></td>
+    </tr>
     </tbody>
 </table>
-</div>
+</body>
+</html>
+
+<!--<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">-->
+<!--<script-->
+        <!--src="https://code.jquery.com/jquery-3.1.1.min.js"-->
+        <!--integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="-->
+        <!--crossorigin="anonymous"></script>-->
+<!--<script src="semantic/dist/semantic.min.js"></script>-->
+
+<!--<h1>Address Book</h1>-->
+<!--<table class="ui celled table">-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Phone</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+        <!--<tr th:each="buddy : ${buddies}">-->
+            <!--<td th:text="${buddy.name}"></td>-->
+            <!--<td th:text="${buddy.phoneNumber}"></td>-->
+        <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
 
